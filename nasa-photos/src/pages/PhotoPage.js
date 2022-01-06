@@ -26,6 +26,12 @@ class PhotoPage extends React.Component {
         loopArray.push(cardArray);
       }
       console.log(loopArray, "looparray");
+      //   //mutate loopArray so that each object contains a 'liked' field
+      //   //this will allow individual cards to be liked
+      //   loopArray.forEach((object) => {
+      //     object.liked = "false";
+      //   });
+      //insert loopArray into State, so that it can be sent as a prop
       this.setState({ cardList: loopArray });
     } catch (error) {
       console.log(error, "error");
@@ -34,7 +40,7 @@ class PhotoPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <div classname="wrapper">
         <CardGrid cardList={this.state.cardList} />
       </div>
     );

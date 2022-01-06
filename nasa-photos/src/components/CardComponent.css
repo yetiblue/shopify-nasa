@@ -1,8 +1,9 @@
-.wrapper {
+.individual-card-wrapper {
   height: 65vh;
   box-sizing: border-box;
   padding: 1em;
-  max-width: 350px;
+  background-color: rgba(255, 255, 255, 0.87);
+  border-radius: 25px;
 }
 
 .bottom-button {
@@ -13,8 +14,9 @@
 .bottom-button__read-more {
   background: white;
   cursor: pointer;
-
-  color: purple;
+  border-radius: 10px;
+  /* background-color: rgb(221, 130, 111); */
+  color: rgb(black);
   display: block;
   width: 100%;
   padding: 0.5em;
@@ -32,12 +34,13 @@
 }
 .title-date__title {
   font-size: 1.5em;
+  color: rgb(90, 57, 33);
 }
 .card-text {
   overflow: hidden;
-  max-height: 15vh;
+  max-height: 10vh;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -55,6 +58,7 @@
 .share-like__share {
   background-color: white;
   border: none;
+  border-radius: 2px;
 }
 .share-like__share:hover {
   background-color: rgba(128, 128, 128, 0.479);
@@ -62,6 +66,7 @@
 .share-like__like {
   background-color: white;
   border: none;
+  border-radius: 2px;
 }
 .share-like__like:hover {
   background-color: rgba(128, 128, 128, 0.479);
