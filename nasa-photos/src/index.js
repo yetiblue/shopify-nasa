@@ -4,13 +4,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import "./index.css";
 import CardComponent from "./components/CardComponent.js";
-import CardGrid from "./components/CardGrid.js";
+import PhotoPage from "./pages/PhotoPage.js";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="App">
-      <CardGrid />
+      <PhotoPage />
     </div>
   </React.StrictMode>,
   document.getElementById("root")

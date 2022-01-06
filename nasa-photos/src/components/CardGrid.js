@@ -1,32 +1,23 @@
 import "./CardGrid.css";
-import React from "react";
-import axios from "axios";
 import CardComponent from "./CardComponent.js";
-class CardGrid extends React.Component {
-  constructor() {
-    super();
-  }
-  async componentDidMount() {
-    const baseUrl = "https://api.nasa.gov/planetary/apod?api_key=";
-    const apiKey = "mzyXON84c1ODwcl3wnI9iNPdaf3kyAPEAZAG8JoX";
-    const date = "202022-01-04";
-    try {
-      const response = await axios.get(baseUrl + apiKey);
-      console.log(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  }
-  render() {
-    return (
-      <div className="wrapper">
-        <ul className="card-wrapper">
-          <li className="card-wrapper__li">
-            <CardComponent />
-          </li>
-        </ul>
-      </div>
-    );
-  }
+function CardGrid(props) {
+  console.log(props.cardList, "props");
+
+  let testMap = props.cardList.map((card) => (
+    <li>
+      <CardComponent
+        cardImage={props.cardList[0].url}
+        cardDate={props.cardList[0].date}
+        cardTitle={props.cardList[0].title}
+        cardDesc={props.cardList[0].explanation}
+      />
+    </li>
+  ));
+
+  return (
+    <div className="wrapper">
+      <ul className="card-wrapper">{testMap}</ul>
+    </div>
+  );
 }
 export default CardGrid;
