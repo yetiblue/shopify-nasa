@@ -1,0 +1,68 @@
+.wrapper {
+  height: 65vh;
+  box-sizing: border-box;
+  padding: 1em;
+  max-width: 350px;
+}
+
+.bottom-button {
+  margin-top: 1em;
+  padding: 0.5em;
+  padding-left: 0;
+}
+.bottom-button__read-more {
+  background: white;
+  cursor: pointer;
+
+  color: purple;
+  display: block;
+  width: 100%;
+  padding: 0.5em;
+}
+.card-photo {
+  max-height: 40vh;
+}
+.card-photo__photo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.title-date__date {
+  padding-right: 1em;
+}
+.title-date__title {
+  font-size: 1.5em;
+}
+.card-text {
+  overflow: hidden;
+  max-height: 15vh;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.card-text__text {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+}
+.share-like {
+  display: grid;
+  max-width: 100%;
+  grid-template-columns: 3fr 1fr 1fr;
+}
+.share-like__share {
+  background-color: white;
+  border: none;
+}
+.share-like__share:hover {
+  background-color: rgba(128, 128, 128, 0.479);
+}
+.share-like__like {
+  background-color: white;
+  border: none;
+}
+.share-like__like:hover {
+  background-color: rgba(128, 128, 128, 0.479);
+}

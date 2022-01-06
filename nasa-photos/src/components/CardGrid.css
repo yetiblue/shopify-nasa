@@ -1,0 +1,21 @@
+ul {
+  /* padding: 0; */
+  margin: 0;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 1em;
+  max-height: 100%;
+  justify-content: center;
+  /* background-color: blue; */
+}
+.card-wrapper__li {
+  box-sizing: border-box;
+  /* padding: 1em; */
+  height: 70vh;
+  flex-grow: 1;
+  list-style-type: none;
+}
