@@ -6,11 +6,12 @@ function CardGrid(props) {
   let testMap = props.cardList.map((card) => (
     <li className="card-wrapper__li">
       <CardComponent
-        cardImage={props.cardList[0].url}
-        cardDate={props.cardList[0].date}
-        cardTitle={props.cardList[0].title}
-        cardDesc={props.cardList[0].explanation}
-        cardLiked={props.cardList[0].liked}
+        cardImage={card.url}
+        cardDate={card.date}
+        cardTitle={card.title}
+        cardDesc={card.explanation}
+        cardLiked={card.liked}
+        cardID={card.id}
       />
     </li>
   ));

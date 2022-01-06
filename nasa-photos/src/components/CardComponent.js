@@ -1,13 +1,14 @@
 import "./CardComponent.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function CardComponent(props) {
   const [photoLiked, setPhotoLiked] = useState(false);
 
   let likedNotLiked;
-  console.log(photoLiked, "photoLiked");
+  // console.log(photoLiked, "photoLiked");
   if (photoLiked) {
-    likedNotLiked = "Liked";
+    likedNotLiked = "❤️";
   } else {
     likedNotLiked = "Like";
   }
@@ -34,7 +35,21 @@ function CardComponent(props) {
         <p className="card-text__text">{props.cardDesc}</p>
       </div>
       <div className="bottom-button">
-        <button className="bottom-button__read-more"> ᐅ Find out more</button>
+        <button className="bottom-button__read-more">
+          <nav>
+            <Link
+              to={`/posts/${props.cardID}`}
+              state={{
+                title: props.cardTitle,
+                image: props.cardImage,
+                description: props.cardDesc,
+                date: props.cardDate,
+              }}
+            >
+              ᐅ Find out more
+            </Link>
+          </nav>
+        </button>
       </div>
     </div>
   );

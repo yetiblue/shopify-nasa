@@ -1,16 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./index.css";
-import CardComponent from "./components/CardComponent.js";
+import SinglePost from "./pages/SinglePost";
 import PhotoPage from "./pages/PhotoPage.js";
 import reportWebVitals from "./reportWebVitals";
 
 ReactDOM.render(
   <React.StrictMode>
     <div className="App">
-      <PhotoPage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<PhotoPage />}></Route>
+          <Route path="posts" element={<SinglePost />}>
+            <Route path=":id" element={<SinglePost />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   </React.StrictMode>,
   document.getElementById("root")

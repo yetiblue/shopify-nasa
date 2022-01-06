@@ -22,11 +22,14 @@
   padding: 0.5em;
 }
 .card-photo {
-  max-height: 40vh;
+  height: 25vh;
+  display: flex;
 }
 .card-photo__photo {
-  max-width: 100%;
+  object-fit: cover;
+  width: 100%;
   max-height: 100%;
+  /* display: none; */
 }
 
 .title-date__date {
