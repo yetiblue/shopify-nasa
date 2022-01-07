@@ -1,26 +1,22 @@
 ul {
-  /* padding: 0; */
   margin: 0;
 }
 .grid-wrapper {
-  height: 100%;
   max-width: 100%;
   background-color: rgb(11, 186, 230);
 }
 .card-wrapper {
-  /* overflow: scroll; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   box-sizing: border-box;
   padding: 1em;
-  max-height: 100%;
+  padding-bottom: 4em;
+  height: 100%;
   justify-content: center;
-  /* background-color: blue; */
 }
 .card-wrapper__li {
   box-sizing: border-box;
-  /* padding: 1em; */
   padding: 1em;
   max-width: 350px;
   max-height: 80vh;
@@ -60,7 +56,6 @@ ul {
     transform: rotate(360deg);
   }
 }
-/* loading animation i found */
 
 @media screen and (max-width: 600px) {
   .category-text__header {
@@ -70,5 +65,10 @@ ul {
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   .category-text__header {
     font-size: 1.2em;
+  }
+  /* padding on the bottom to handle blank space from a single row
+  not having enough height to fill the view port */
+  .card-wrapper {
+    padding-bottom: 8em;
   }
 }

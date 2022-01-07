@@ -1,11 +1,13 @@
 import "./CardGrid.css";
 import CardComponent from "./CardComponent.js";
-function CardGrid(props) {
-  console.log(props.cardList, "props");
-  let dataLoading = props.dataLoading;
-  console.log(dataLoading, "data loading");
 
-  let testMap = props.cardList.map((card) => (
+function CardGrid(props) {
+  //receives state: if `true` display the loader | if `false`, the grid will show
+  let dataLoading = props.dataLoading;
+
+  let cardContent = props.cardList.map((card) => (
+    //loop through the API array, and create a new array
+    //of the `CardComponent` component with the props passed in
     <li className="card-wrapper__li">
       <CardComponent
         cardImage={card.url}
@@ -19,13 +21,15 @@ function CardGrid(props) {
   ));
   let content;
   if (dataLoading) {
+    //show loader if true
     content = (
       <div className="loading-wrapper">
         <div className="loader"></div>
       </div>
     );
   } else {
-    content = <ul className="card-wrapper">{testMap}</ul>;
+    //show the grid if false
+    content = <ul className="card-wrapper">{cardContent}</ul>;
   }
   return (
     <div className="grid-wrapper">

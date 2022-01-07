@@ -3,10 +3,13 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 function CardComponent(props) {
+  //the like button is only a small part of the component
+  //and is only accessed in one place. Nothing else
+  //needs state, so the `useState` hook is used here instead of
+  //`state` and a class component
   const [photoLiked, setPhotoLiked] = useState(false);
 
-  let likedNotLiked;
-  // console.log(photoLiked, "photoLiked");
+  let likedNotLiked; //JSX variable for toggling `like` icon
   if (photoLiked) {
     likedNotLiked = "❤️";
   } else {
@@ -16,7 +19,11 @@ function CardComponent(props) {
   return (
     <div className="individual-card-wrapper">
       <div className="card-photo">
-        <img className="card-photo__photo" src={props.cardImage} />
+        <img
+          aria-labelledby="card-title"
+          className="card-photo__photo"
+          src={props.cardImage}
+        />
       </div>
       <div className="share-like">
         <p className="title-date__date">{props.cardDate}</p>
@@ -30,7 +37,7 @@ function CardComponent(props) {
           {likedNotLiked}
         </button>
       </div>
-      <h1 className="title-date__title"> {props.cardTitle}</h1>
+      <h1 className="card-title"> {props.cardTitle}</h1>
       <div className="card-text">
         <p className="card-text__text">{props.cardDesc}</p>
       </div>
@@ -38,6 +45,10 @@ function CardComponent(props) {
         <button className="bottom-button__read-more">
           <nav>
             <Link
+              //using `Link`'s state object
+              //to pass the card props to
+              //the page with all of the data
+              //of that specific card
               className="bottom-button__link"
               to={`/posts/${props.cardID}`}
               state={{

@@ -15,7 +15,6 @@
   background: white;
   cursor: pointer;
   border-radius: 10px;
-  /* background-color: rgb(221, 130, 111); */
   color: rgb(black);
   display: block;
   width: 100%;
@@ -27,8 +26,8 @@
   text-decoration: none;
   color: black;
   font-size: 1.2em;
-  /* background-color: black; */
   padding: 1em;
+  font-weight: bold;
 }
 .card-photo {
   height: 25vh;
@@ -44,7 +43,7 @@
 .title-date__date {
   padding-right: 1em;
 }
-.title-date__title {
+.card-title {
   font-size: 1.5em;
   color: rgb(90, 57, 33);
 }
@@ -87,12 +86,34 @@
 }
 @media screen and (max-width: 600px) {
   .individual-card-wrapper {
-    height: 75vh;
+    height: 70vh;
   }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   .individual-card-wrapper {
     height: 65vh;
+  }
+}
+/* resizes grid for desktop screens, doesn't account for vertical ipad screens */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .individual-card-wrapper {
+    height: 67vh;
+  }
+  .card-text {
+    max-height: 10vh;
+  }
+}
+/* give a bit more space to each card if the browser height isn't the full height and the 
+elements get smushed vertically */
+@media screen and (max-height: 775px) {
+  .individual-card-wrapper {
+    height: 75vh;
+  }
+  .bottom-button {
+    margin-top: 1.5em;
+  }
+  .card-text {
+    max-height: 14vh;
   }
 }
