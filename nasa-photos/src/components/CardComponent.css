@@ -101,7 +101,7 @@
     height: 67vh;
   }
   .card-text {
-    max-height: 12vh;
+    max-height: 10vh;
   }
 }
 /* give a bit more space to each card if the browser height isn't the full height and the 
