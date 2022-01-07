@@ -38,6 +38,7 @@ function CardComponent(props) {
         <button className="bottom-button__read-more">
           <nav>
             <Link
+              className="bottom-button__link"
               to={`/posts/${props.cardID}`}
               state={{
                 title: props.cardTitle,

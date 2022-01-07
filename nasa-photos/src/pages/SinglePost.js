@@ -13,9 +13,11 @@ function SinglePost(props) {
         <img className="single-view__image__img" src={data.image}></img>
       </div>
       <div className="single-view__content">
-        <h1>{data.title}</h1>
-        <p> {data.date}</p>
-        <p>{data.description}</p>
+        <div className="centered-content">
+          <h1>{data.title}</h1>
+          <p> {data.date}</p>
+          <p>{data.description}</p>
+        </div>
       </div>
     </div>
   );

@@ -21,6 +21,9 @@
   width: 100%;
   padding: 0.5em;
 }
+.bottom-button__link {
+  text-decoration: none;
+}
 .card-photo {
   height: 25vh;
   display: flex;
