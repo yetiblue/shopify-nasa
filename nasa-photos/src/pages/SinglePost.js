@@ -3,10 +3,11 @@ import "./SinglePost.css";
 import { useLocation, Link } from "react-router-dom";
 
 function SinglePost(props) {
+  //access the `useLocation` hook to get the State object
+  //that was passed via the <Link> tag
   const location = useLocation();
   let data = location.state;
 
-  //   render() {
   return (
     <div className="single-view__wrapper">
       <button className="single-view__back">
