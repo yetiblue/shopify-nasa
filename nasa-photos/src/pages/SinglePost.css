@@ -1,0 +1,14 @@
+.single-view-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.single-view__content {
+  padding: 2em;
+}
+.single-view__image__img {
+  max-width: 100%;
+}
+.single-view__image {
+  display: flex;
+  align-items: center;
+}
