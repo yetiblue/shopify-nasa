@@ -11,6 +11,7 @@ class PhotoPage extends React.Component {
       //will be updated by the date picker form
       startDate: "2021-12-05",
       endDate: "2022-01-05",
+      loading: true,
     };
     this.axiosGetFunction = this.axiosGetFunction.bind(this);
     this.getNewDates = this.getNewDates.bind(this);
@@ -34,7 +35,7 @@ class PhotoPage extends React.Component {
           end_date: this.state.endDate,
         },
       });
-
+      this.setState({ loading: false });
       console.log(response.data, "response");
       const cardArray = response.data;
       this.sendAsProps(cardArray);
@@ -96,7 +97,10 @@ class PhotoPage extends React.Component {
           </button>
         </div>
 
-        <CardGrid cardList={this.state.cardList} />
+        <CardGrid
+          dataLoading={this.state.loading}
+          cardList={this.state.cardList}
+        />
       </div>
     );
   }
