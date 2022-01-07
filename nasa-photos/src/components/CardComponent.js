@@ -19,7 +19,11 @@ function CardComponent(props) {
   return (
     <div className="individual-card-wrapper">
       <div className="card-photo">
-        <img className="card-photo__photo" src={props.cardImage} />
+        <img
+          aria-labelledby="card-title"
+          className="card-photo__photo"
+          src={props.cardImage}
+        />
       </div>
       <div className="share-like">
         <p className="title-date__date">{props.cardDate}</p>

@@ -53,8 +53,8 @@ class PhotoPage extends React.Component {
   async getNewDates() {
     const startDate = document.querySelector("#start");
     const endDate = document.querySelector("#end");
-    //the API will throw an error if the start Date is empty
-    //the end date can be left empty, it'll just default to the
+    //The API will throw an error if the start Date is empty.
+    //The end date can be left empty, it'll just default to the
     //current date
     if (startDate.value == "") {
       this.setState(
@@ -72,7 +72,7 @@ class PhotoPage extends React.Component {
     return (
       <div className="photopage-wrapper">
         <div className="date-wrapper">
-          <p className="date-wrapper__start">Start Date</p>
+          <label className="date-wrapper__start">Start Date</label>
           <input
             type="date"
             id="start"
@@ -80,7 +80,7 @@ class PhotoPage extends React.Component {
             min="2021-12-05"
             max="2022-01-10"
           />
-          <p className="date-wrapper__end">End Date</p>
+          <label className="date-wrapper__end">End Date</label>
           <input
             type="date"
             id="end"
@@ -93,7 +93,6 @@ class PhotoPage extends React.Component {
             Search
           </button>
         </div>
-
         <CardGrid
           dataLoading={this.state.loading}
           cardList={this.state.cardList}

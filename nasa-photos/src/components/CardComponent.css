@@ -27,6 +27,7 @@
   color: black;
   font-size: 1.2em;
   padding: 1em;
+  font-weight: bold;
 }
 .card-photo {
   height: 25vh;
