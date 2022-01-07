@@ -11,6 +11,7 @@ class PhotoPage extends React.Component {
       //will be updated by the date picker form
       startDate: "2021-12-05",
       endDate: "2022-01-05",
+      loading: true,
     };
     this.axiosGetFunction = this.axiosGetFunction.bind(this);
     this.getNewDates = this.getNewDates.bind(this);
@@ -22,23 +23,19 @@ class PhotoPage extends React.Component {
     //exposing my Api Key here since the data being accessed is public
     //Normally it would go in an .env file on the server-side, but since
     //this page is just client-side, it's not possible to hide them.
-    // const baseUrl = "https://api.nasa.gov/planetary/apod?api_key=";
-    // const apiKey = "mzyXON84c1ODwcl3wnI9iNPdaf3kyAPEAZAG8JoX";
-    // const date = "202022-01-04";
+
     let loopArray = [];
     console.log();
     try {
       //   const response = await axios.get(baseUrl + apiKey);
-      const response = await axios.get(
-        "https://api.nasa.gov/planetary/apod/?api_key=mzyXON84c1ODwcl3wnI9iNPdaf3kyAPEAZAG8JoX",
-        {
-          params: {
-            start_date: this.state.startDate,
-            end_date: this.state.endDate,
-          },
-        }
-      );
-
+      const response = await axios.get("https://api.nasa.gov/planetary/apod", {
+        params: {
+          api_key: "mzyXON84c1ODwcl3wnI9iNPdaf3kyAPEAZAG8JoX",
+          start_date: this.state.startDate,
+          end_date: this.state.endDate,
+        },
+      });
+      this.setState({ loading: false });
       console.log(response.data, "response");
       const cardArray = response.data;
       this.sendAsProps(cardArray);
@@ -100,7 +97,10 @@ class PhotoPage extends React.Component {
           </button>
         </div>
 
-        <CardGrid cardList={this.state.cardList} />
+        <CardGrid
+          dataLoading={this.state.loading}
+          cardList={this.state.cardList}
+        />
       </div>
     );
   }

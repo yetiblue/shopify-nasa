@@ -20,6 +20,15 @@
   display: block;
   width: 100%;
   padding: 0.5em;
+  border: 1px solid grey;
+}
+
+.bottom-button__link {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2em;
+  /* background-color: black; */
+  padding: 1em;
 }
 .card-photo {
   height: 25vh;
@@ -62,6 +71,7 @@
   background-color: white;
   border: none;
   border-radius: 2px;
+  font-size: 1em;
 }
 .share-like__share:hover {
   background-color: rgba(128, 128, 128, 0.479);
@@ -70,7 +80,19 @@
   background-color: white;
   border: none;
   border-radius: 2px;
+  font-size: 1em;
 }
 .share-like__like:hover {
   background-color: rgba(128, 128, 128, 0.479);
+}
+@media screen and (max-width: 600px) {
+  .individual-card-wrapper {
+    height: 75vh;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1024px) {
+  .individual-card-wrapper {
+    height: 65vh;
+  }
 }
