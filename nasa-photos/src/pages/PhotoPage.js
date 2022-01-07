@@ -1,12 +1,14 @@
 import React from "react";
 import axios from "axios";
 import CardGrid from "../components/CardGrid.js";
+import "./PhotoPage.css";
 class PhotoPage extends React.Component {
   constructor() {
     super();
     this.state = {
       cardList: [],
       //defaut start set of dates to display upon first page load
+      //will be updated by the date picker form
       startDate: "2021-12-05",
       endDate: "2022-01-05",
     };
@@ -57,17 +59,26 @@ class PhotoPage extends React.Component {
   async getNewDates() {
     const startDate = document.querySelector("#start");
     const endDate = document.querySelector("#end");
-    console.log(startDate.value, endDate, "start and dend");
-    this.setState(
-      { startDate: startDate.value, endDate: endDate.value },
-      this.axiosGetFunction
-    );
+    //the API will throw an error if the start Date is empty
+    //the end date can be left empty, it'll just default to the
+    //current date
+    if (startDate.value == "") {
+      this.setState(
+        { startDate: this.state.startDate, endDate: endDate.value },
+        this.axiosGetFunction
+      );
+    } else {
+      this.setState(
+        { startDate: startDate.value, endDate: endDate.value },
+        this.axiosGetFunction
+      );
+    }
   }
   render() {
     return (
-      <div className="date-wrapper">
-        <p>
-          Start Date
+      <div className="photopage-wrapper">
+        <div className="date-wrapper">
+          <p className="date-wrapper__start">Start Date</p>
           <input
             type="date"
             id="start"
@@ -75,7 +86,7 @@ class PhotoPage extends React.Component {
             min="2021-12-05"
             max="2022-01-10"
           />
-          End Date
+          <p className="date-wrapper__end">End Date</p>
           <input
             type="date"
             id="end"
@@ -83,8 +94,11 @@ class PhotoPage extends React.Component {
             min="2021-12-05"
             max="2022-01-10"
           />
-          <button onClick={this.getNewDates}>Search</button>
-        </p>
+
+          <button className="search-button" onClick={this.getNewDates}>
+            Search
+          </button>
+        </div>
 
         <CardGrid cardList={this.state.cardList} />
       </div>
