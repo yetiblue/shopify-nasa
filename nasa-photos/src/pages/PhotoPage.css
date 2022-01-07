@@ -1,0 +1,24 @@
+.date-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.date-wrapper__start {
+  margin: 1em;
+}
+.date-wrapper__end {
+  margin: 1em;
+}
+.search-button {
+  padding: 1em;
+  border: none;
+  border-radius: 5px;
+  background-color: white;
+}
+.search-button:hover {
+  background-color: rgba(128, 128, 128, 0.61);
+}
+input {
+  border: none;
+  background-color: white;
+}
