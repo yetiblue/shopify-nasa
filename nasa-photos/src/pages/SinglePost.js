@@ -12,8 +12,14 @@ function SinglePost(props) {
 
   //   render() {
   return (
-    <div>
-      <h1>{data.title}</h1>
+    <div className="single-view-grid">
+      <div className="single-view__image">
+        <img src={data.image}></img>
+      </div>
+      <div className="single-view__content">
+        <h1>{data.title}</h1>
+        <p>{data.description}</p>
+      </div>
     </div>
   );
   //   }
