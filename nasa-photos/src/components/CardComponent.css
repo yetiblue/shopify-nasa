@@ -86,12 +86,34 @@
 }
 @media screen and (max-width: 600px) {
   .individual-card-wrapper {
-    height: 75vh;
+    height: 70vh;
   }
 }
 
 @media screen and (min-width: 600px) and (max-width: 1024px) {
   .individual-card-wrapper {
     height: 65vh;
+  }
+}
+/* resizes grid for desktop screens, doesn't account for vertical ipad screens */
+@media screen and (min-width: 1024px) and (max-width: 1366px) {
+  .individual-card-wrapper {
+    height: 67vh;
+  }
+  .card-text {
+    max-height: 12vh;
+  }
+}
+/* give a bit more space to each card if the browser height isn't the full height and the 
+elements get smushed vertically */
+@media screen and (max-height: 775px) {
+  .individual-card-wrapper {
+    height: 75vh;
+  }
+  .bottom-button {
+    margin-top: 1.5em;
+  }
+  .card-text {
+    max-height: 14vh;
   }
 }
