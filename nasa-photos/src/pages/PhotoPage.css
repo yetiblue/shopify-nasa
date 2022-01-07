@@ -5,9 +5,11 @@
 }
 .date-wrapper__start {
   margin: 1em;
+  font-size: 1.2em;
 }
 .date-wrapper__end {
   margin: 1em;
+  font-size: 1.2em;
 }
 .search-button {
   padding: 1em;
@@ -15,10 +17,66 @@
   border-radius: 5px;
   background-color: white;
 }
+.search-label {
+  font-size: 1.5em;
+}
 .search-button:hover {
   background-color: rgba(128, 128, 128, 0.61);
 }
 input {
   border: none;
   background-color: white;
+}
+.hide-button {
+  display: none;
+}
+
+.show-dates-mobile {
+  display: none;
+}
+.date-wrapper-mobile {
+  display: none;
+}
+@media screen and (max-width: 600px) {
+  input {
+    padding: 0;
+    margin: 0;
+  }
+  .date-wrapper {
+    display: none;
+  }
+  .date-wrapper-mobile {
+    display: grid;
+    /* display: none; */
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .show-dates-mobile {
+    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(11, 186, 230);
+  }
+  .show-dates-button {
+    padding: 1em;
+    width: 100%;
+    background-color: rgb(0, 0, 0, 0);
+    border: none;
+  }
+  .show-dates-label {
+    font-weight: bold;
+    font-size: 1.5em;
+  }
+  .hide-button {
+    display: block;
+    border: none;
+    background-color: white;
+  }
+  .search-button {
+    border: 0.5px solid grey;
+  }
+  .search-button:hover {
+    background-color: rgba(143, 142, 142, 0.315);
+  }
 }

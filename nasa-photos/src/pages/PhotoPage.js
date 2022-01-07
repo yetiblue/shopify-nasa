@@ -15,11 +15,15 @@ class PhotoPage extends React.Component {
     };
     this.axiosGetFunction = this.axiosGetFunction.bind(this);
     this.getNewDates = this.getNewDates.bind(this);
+    this.hideDateMenu = this.hideDateMenu.bind(this);
+    this.showDateMenu = this.showDateMenu.bind(this);
   }
   componentDidMount() {
     //Displays the full set of data based on the hard-coded
     //start and end dates in State with every reload.
     this.axiosGetFunction();
+    // document.getElementsByClassName("date-wrapper-mobile")[0].style.display =
+    //   "none";
   }
   async axiosGetFunction() {
     //exposing my Api Key here since the data being accessed is public
@@ -50,12 +54,13 @@ class PhotoPage extends React.Component {
     this.setState({ cardList: data });
   }
   //makes another GET call with newly selected dates
-  async getNewDates() {
-    const startDate = document.querySelector("#start");
-    const endDate = document.querySelector("#end");
+  async getNewDates(dateObject) {
+    const startDate = document.querySelector(dateObject.start);
+    const endDate = document.querySelector(dateObject.end);
     //The API will throw an error if the start Date is empty.
     //The end date can be left empty, it'll just default to the
     //current date
+
     if (startDate.value == "") {
       this.setState(
         { startDate: this.state.startDate, endDate: endDate.value },
@@ -68,7 +73,21 @@ class PhotoPage extends React.Component {
       );
     }
   }
+  hideDateMenu() {
+    document.getElementsByClassName("date-wrapper-mobile")[0].style.display =
+      "none";
+    document.getElementsByClassName("show-dates-button")[0].style.display = "";
+  }
+  showDateMenu() {
+    document.getElementsByClassName("date-wrapper-mobile")[0].style.display =
+      "";
+    document.getElementsByClassName("show-dates-button")[0].style.display =
+      "none";
+  }
+
   render() {
+    let startEnd = { start: "#start", end: "#end" };
+    let startEndMobile = { start: "#start-mobile", end: "#end-mobile" };
     return (
       <div className="photopage-wrapper">
         <div className="date-wrapper">
@@ -89,8 +108,45 @@ class PhotoPage extends React.Component {
             max="2022-01-10"
           />
 
-          <button className="search-button" onClick={this.getNewDates}>
-            Search
+          <button
+            className="search-button"
+            onClick={() => this.getNewDates(startEnd)}
+          >
+            <label className="search-label"> Search</label>
+          </button>
+        </div>
+        {/* show this date wrapper when on phone screens */}
+        <div className="date-wrapper-mobile">
+          <label className="date-wrapper__start">Start Date</label>
+          <input
+            type="date"
+            id="start-mobile"
+            name="trip-start"
+            min="2021-12-05"
+            max="2022-01-10"
+          />
+          <label className="date-wrapper__end">End Date</label>
+          <input
+            type="date"
+            id="end-mobile"
+            name="trip-start"
+            min="2021-12-05"
+            max="2022-01-10"
+          />
+
+          <button
+            className="search-button"
+            onClick={() => this.getNewDates(startEndMobile)}
+          >
+            <label className="search-label"> Search</label>
+          </button>
+          <button className="hide-button" onClick={this.hideDateMenu}>
+            <label> Hide ^</label>
+          </button>
+        </div>
+        <div className="show-dates-mobile">
+          <button className="show-dates-button" onClick={this.showDateMenu}>
+            <label className="show-dates-label">Change Dates ⇩</label>
           </button>
         </div>
         <CardGrid

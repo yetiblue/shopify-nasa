@@ -42,26 +42,26 @@ function CardComponent(props) {
         <p className="card-text__text">{props.cardDesc}</p>
       </div>
       <div className="bottom-button">
-        <button className="bottom-button__read-more">
-          <nav>
-            <Link
-              //using `Link`'s state object
-              //to pass the card props to
-              //the page with all of the data
-              //of that specific card
-              className="bottom-button__link"
-              to={`/posts/${props.cardID}`}
-              state={{
-                title: props.cardTitle,
-                image: props.cardImage,
-                description: props.cardDesc,
-                date: props.cardDate,
-              }}
-            >
-              ᐅ Find out more
-            </Link>
-          </nav>
-        </button>
+        <nav>
+          <Link
+            //using `Link`'s state object
+            //to pass the card props to
+            //the page with all of the data
+            //of that specific card
+            className="bottom-button__link"
+            to={`/posts/${props.cardID}`}
+            state={{
+              title: props.cardTitle,
+              image: props.cardImage,
+              description: props.cardDesc,
+              date: props.cardDate,
+            }}
+          >
+            <button className="bottom-button__read-more">
+              ᐅ Find out more{" "}
+            </button>
+          </Link>
+        </nav>
       </div>
     </div>
   );

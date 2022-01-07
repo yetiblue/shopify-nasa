@@ -25,9 +25,10 @@
 .bottom-button__link {
   text-decoration: none;
   color: black;
+  max-height: 100%;
   font-size: 1.2em;
-  padding: 1em;
   font-weight: bold;
+  background-color: black;
 }
 .card-photo {
   height: 25vh;
