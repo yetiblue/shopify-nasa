@@ -33,8 +33,6 @@ function CardComponent(props) {
         cardDate={props.cardDate}
         cardTitle={props.cardTitle}
         cardDesc={props.cardDesc}
-        cardLiked={props.cardLiked}
-        cardID={props.cardID}
       />
     );
   }
@@ -54,6 +52,7 @@ function CardComponent(props) {
           <button className="share-like__share"> Share </button>
 
           <button
+            type="button"
             className="share-like__like"
             onClick={() => {
               setPhotoLiked(!photoLiked);
@@ -69,6 +68,7 @@ function CardComponent(props) {
         <div className="bottom-button">
           <nav>
             <button
+              type="button"
               className="bottom-button__read-more"
               onClick={() => {
                 setModalOpen(!modalOpen);
