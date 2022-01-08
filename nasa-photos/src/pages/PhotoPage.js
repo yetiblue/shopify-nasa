@@ -9,7 +9,7 @@ class PhotoPage extends React.Component {
       cardList: [],
       //defaut start set of dates to display upon first page load.
       //Will be updated by the date picker form
-      startDate: "2021-12-05",
+      startDate: "2021-12-20",
       endDate: "2022-01-05",
       loading: true,
     };

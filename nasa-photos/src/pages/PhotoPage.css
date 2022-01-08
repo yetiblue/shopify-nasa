@@ -48,8 +48,15 @@ input {
   }
   .date-wrapper-mobile {
     display: grid;
-    /* display: none; */
-    grid-template-columns: 3fr 1fr;
+    grid-template-columns: 1fr 1.5fr;
+  }
+  #start-mobile {
+    -webkit-appearance: none;
+    border: 1px solid black;
+  }
+  #end-mobile {
+    -webkit-appearance: none;
+    border: 1px solid black;
   }
 
   .show-dates-mobile {
