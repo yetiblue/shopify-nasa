@@ -1,6 +1,9 @@
 .single-view__wrapper {
   background-color: black;
-  position: relative;
+  position: fixed;
+  width: 100vw;
+  left: 0;
+  top: 0;
 }
 .single-view-grid {
   display: grid;
