@@ -22,8 +22,8 @@ class PhotoPage extends React.Component {
     //Displays the full set of data based on the hard-coded
     //start and end dates in State with every reload.
     this.axiosGetFunction();
-    // document.getElementsByClassName("date-wrapper-mobile")[0].style.display =
-    //   "none";
+    document.getElementsByClassName("date-wrapper-mobile")[0].style.display =
+      "none";
   }
   async axiosGetFunction() {
     //exposing my Api Key here since the data being accessed is public
@@ -86,6 +86,10 @@ class PhotoPage extends React.Component {
   }
 
   render() {
+    //mobile and desktop date pickers have different ID's.
+    //Set the ID values in an object, and then pass it into
+    //getNewDates() where querySelector() is used to get the
+    //date value
     let startEnd = { start: "#start", end: "#end" };
     let startEndMobile = { start: "#start-mobile", end: "#end-mobile" };
     return (
@@ -115,7 +119,7 @@ class PhotoPage extends React.Component {
             <label className="search-label"> Search</label>
           </button>
         </div>
-        {/* show this date wrapper when on phone screens */}
+        {/* --------- Mobile Date Drawer ----------- */}
         <div className="date-wrapper-mobile">
           <label className="date-wrapper__start">Start Date</label>
           <input

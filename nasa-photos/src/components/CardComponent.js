@@ -28,6 +28,7 @@ function CardComponent(props) {
       <div className="share-like">
         <p className="title-date__date">{props.cardDate}</p>
         <button className="share-like__share"> Share </button>
+
         <button
           className="share-like__like"
           onClick={() => {
