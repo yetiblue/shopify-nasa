@@ -32,7 +32,9 @@ class SinglePost extends React.Component {
           </div>
           <div className="single-view__content">
             <div className="centered-content">
-              <h1>{this.props.cardTitle}</h1>
+              <h1 className="centered-content__title">
+                {this.props.cardTitle}
+              </h1>
               <p> {this.props.cardDate}</p>
               <p>{this.props.cardDesc}</p>
             </div>
