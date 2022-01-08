@@ -21,15 +21,16 @@
   width: 100%;
   padding: 0.5em;
   border: 1px solid grey;
+  font-size: 1em;
 }
 
-.bottom-button__link {
+/* .bottom-button__link {
   text-decoration: none;
   color: black;
   max-height: 100%;
   font-size: 1.2em;
   background-color: black;
-}
+} */
 .card-photo {
   height: 25vh;
   display: flex;

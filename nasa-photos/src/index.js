@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./index.css";
-import SinglePost from "./pages/SinglePost";
 import PhotoPage from "./pages/PhotoPage.js";
 import reportWebVitals from "./reportWebVitals";
 
@@ -13,9 +12,6 @@ ReactDOM.render(
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<PhotoPage />}></Route>
-          <Route path="posts" element={<SinglePost />}>
-            <Route path=":id" element={<SinglePost />} />
-          </Route>
         </Routes>
       </BrowserRouter>
     </div>

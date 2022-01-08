@@ -1,68 +1,84 @@
 import "./CardComponent.css";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import SinglePost from "./SinglePost.js";
 
 function CardComponent(props) {
-  //the like button is only a small part of the component
-  //and is only accessed in one place. Nothing else
-  //needs state, so the `useState` hook is used here instead of
-  //`state` and a class component
+  //`useState` is more convinient here with [modalOpen, setModalOpen]
+  //compared to this.state. Keeping this component as a function
+  //component since there also aren't any methods that need calling.
+  const [modalOpen, setModalOpen] = useState(false);
   const [photoLiked, setPhotoLiked] = useState(false);
 
-  let likedNotLiked; //JSX variable for toggling `like` icon
+  //JSX variable for toggling `like` icon
+  let likedNotLiked;
   if (photoLiked) {
     likedNotLiked = "❤️";
   } else {
     likedNotLiked = "Like";
   }
-
+  //disable scrolling on body when the modal is open
+  if (modalOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
+  //variable for storing the modal component
+  let renderModal;
+  if (!modalOpen) {
+  } else {
+    renderModal = (
+      <SinglePost
+        closeModal={[modalOpen, setModalOpen]} //allows `SinglePost` to change value of `modalOpen`
+        cardImage={props.cardImage}
+        cardDate={props.cardDate}
+        cardTitle={props.cardTitle}
+        cardDesc={props.cardDesc}
+        cardLiked={props.cardLiked}
+        cardID={props.cardID}
+      />
+    );
+  }
   return (
-    <div className="individual-card-wrapper">
-      <div className="card-photo">
-        <img
-          aria-labelledby="card-title"
-          className="card-photo__photo"
-          src={props.cardImage}
-        />
-      </div>
-      <div className="share-like">
-        <p className="title-date__date">{props.cardDate}</p>
-        <button className="share-like__share"> Share </button>
+    <div>
+      {renderModal}
+      <div className="individual-card-wrapper">
+        <div className="card-photo">
+          <img
+            aria-labelledby="card-title"
+            className="card-photo__photo"
+            src={props.cardImage}
+          />
+        </div>
+        <div className="share-like">
+          <p className="title-date__date">{props.cardDate}</p>
+          <button className="share-like__share"> Share </button>
 
-        <button
-          className="share-like__like"
-          onClick={() => {
-            setPhotoLiked(!photoLiked);
-          }}
-        >
-          {likedNotLiked}
-        </button>
-      </div>
-      <h1 className="card-title"> {props.cardTitle}</h1>
-      <div className="card-text">
-        <p className="card-text__text">{props.cardDesc}</p>
-      </div>
-      <div className="bottom-button">
-        <nav>
-          <Link
-            //using `Link`'s state object
-            //to pass the card props to
-            //the page with all of the data
-            //of that specific card
-            className="bottom-button__link"
-            to={`/posts/${props.cardID}`}
-            state={{
-              title: props.cardTitle,
-              image: props.cardImage,
-              description: props.cardDesc,
-              date: props.cardDate,
+          <button
+            className="share-like__like"
+            onClick={() => {
+              setPhotoLiked(!photoLiked);
             }}
           >
-            <button className="bottom-button__read-more">
-              ᐅ Find out more{" "}
+            {likedNotLiked}
+          </button>
+        </div>
+        <h1 className="card-title"> {props.cardTitle}</h1>
+        <div className="card-text">
+          <p className="card-text__text">{props.cardDesc}</p>
+        </div>
+        <div className="bottom-button">
+          <nav>
+            <button
+              className="bottom-button__read-more"
+              onClick={() => {
+                setModalOpen(!modalOpen);
+              }}
+            >
+              <label> ᐅ Find out more</label>
             </button>
-          </Link>
-        </nav>
+            {/* </Link> */}
+          </nav>
+        </div>
       </div>
     </div>
   );

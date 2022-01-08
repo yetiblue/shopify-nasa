@@ -61,7 +61,7 @@ class PhotoPage extends React.Component {
     //The end date can be left empty, it'll just default to the
     //current date
 
-    if (startDate.value == "") {
+    if (startDate.value === "") {
       this.setState(
         { startDate: this.state.startDate, endDate: endDate.value },
         this.axiosGetFunction
