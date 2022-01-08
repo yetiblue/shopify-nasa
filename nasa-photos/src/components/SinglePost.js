@@ -19,7 +19,11 @@ class SinglePost extends React.Component {
   render() {
     return (
       <div className="single-view__wrapper">
-        <button className="single-view__back" onClick={this.closeModal}>
+        <button
+          type="button"
+          className="single-view__back"
+          onClick={this.closeModal}
+        >
           ←
         </button>
 

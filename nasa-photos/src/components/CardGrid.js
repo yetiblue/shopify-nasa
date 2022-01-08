@@ -8,7 +8,7 @@ function CardGrid(props) {
   let cardContent = props.cardList.map((card) => (
     //loop through the API array, and create a new array
     //of the `CardComponent` component with the props passed in
-    <li className="card-wrapper__li">
+    <li key={card.id} className="card-wrapper__li">
       <CardComponent
         cardImage={card.url}
         cardDate={card.date}

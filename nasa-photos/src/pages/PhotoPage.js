@@ -9,8 +9,8 @@ class PhotoPage extends React.Component {
       cardList: [],
       //defaut start set of dates to display upon first page load.
       //Will be updated by the date picker form
-      startDate: "2021-12-05",
-      endDate: "2022-01-05",
+      startDate: "2021-12-24",
+      endDate: "2022-01-07",
       loading: true,
     };
     this.axiosGetFunction = this.axiosGetFunction.bind(this);
@@ -113,6 +113,7 @@ class PhotoPage extends React.Component {
           />
 
           <button
+            type="submit"
             className="search-button"
             onClick={() => this.getNewDates(startEnd)}
           >
@@ -139,17 +140,26 @@ class PhotoPage extends React.Component {
           />
 
           <button
+            type="submit"
             className="search-button"
             onClick={() => this.getNewDates(startEndMobile)}
           >
             <label className="search-label"> Search</label>
           </button>
-          <button className="hide-button" onClick={this.hideDateMenu}>
+          <button
+            type="button"
+            className="hide-button"
+            onClick={this.hideDateMenu}
+          >
             <label> Hide ^</label>
           </button>
         </div>
         <div className="show-dates-mobile">
-          <button className="show-dates-button" onClick={this.showDateMenu}>
+          <button
+            type="button"
+            className="show-dates-button"
+            onClick={this.showDateMenu}
+          >
             <label className="show-dates-label">Change Dates ⇩</label>
           </button>
         </div>
